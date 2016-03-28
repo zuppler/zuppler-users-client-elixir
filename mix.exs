@@ -36,7 +36,8 @@ defmodule ZupplerUsers.Mixfile do
       {:poolboy, "~> 1.5"},
       {:lru_cache, "~> 0.1.0"},
       {:mix_test_watch, "~> 0.1.1", only: :dev},
-      {:exvcr, "~> 0.7", only: :test}
+      {:exvcr, "~> 0.7", only: :test},
+      {:ex_doc, ">= 0.11.4", only: [:dev]}
    ]
   end
 
