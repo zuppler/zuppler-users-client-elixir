@@ -26,7 +26,7 @@ defmodule ZupplerUsers.Auth.Oauth do
   end
 
   defp config do
-    cfg = Application.get_env(:zuppler_users, ZupplerUsers.Endpoint)
+    cfg = Application.get_env(:zuppler_users_client, ZupplerUsers.Endpoint)
     if is_nil(cfg) || is_nil(cfg[:client_id]) ||
       is_nil(cfg[:client_secret]) || is_nil(cfg[:token_url]) || is_nil(cfg[:site]) do
       raise "Config <client_id, client_secret, token_url, site> are required. Please update config file"

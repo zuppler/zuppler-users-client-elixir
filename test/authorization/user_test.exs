@@ -54,7 +54,7 @@ defmodule ZupplerUsers.Auth.UserTest do
   end
 
   def get_user_token do
-    cfg = Application.get_env(:zuppler_users, ZupplerUsers.Endpoint)
+    cfg = Application.get_env(:zuppler_users_client, ZupplerUsers.Endpoint)
     test_user_id = cfg[:test_user_id]
     {:ok, token} = ZupplerUsers.Auth.Oauth.get_user_token(test_user_id)
     token

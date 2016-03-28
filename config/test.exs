@@ -1,6 +1,6 @@
 use Mix.Config
 
-config :zuppler_users, ZupplerUsers.Endpoint,
+config :zuppler_users_client, ZupplerUsers.Endpoint,
   client_id: System.get_env("TEST_CLIENT_ID"),
   client_secret: System.get_env("TEST_CLIENT_SECRET"),
   redirect_uri: "http://localhost:4000/zuppler_users/callback",

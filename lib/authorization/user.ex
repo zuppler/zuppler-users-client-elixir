@@ -55,7 +55,7 @@ defmodule ZupplerUsers.Auth.User do
   end
 
   def user_url do
-    config = Application.get_env(:zuppler_users, ZupplerUsers.Endpoint)
+    config = Application.get_env(:zuppler_users_client, ZupplerUsers.Endpoint)
     config[:current_user_url]
   end
 end
