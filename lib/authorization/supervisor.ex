@@ -11,11 +11,13 @@ defmodule ZupplerUsers.Auth.Supervisor do
   In the app module add a new child supervisor(Zuppler.Auth, []])
 
   ## Usage
+    ```
     user_info = Zuppler.Auth.auth(token)
 
-    Authorization.ZupplerAuth.has_role(user_info, "restaurant")
-    Authorization.ZupplerAuth.has_role(user_info, ["restaurant", "channel"])
+    Authorization.ZupplerAuth.has_any_role?(user_info, "restaurant")
+    Authorization.ZupplerAuth.has_any_role?(user_info, ["restaurant", "channel"])
     Authorization.ZupplerAuth.acls_for(user_info, :restaurant)
+    ```
   """
 
   import Supervisor
@@ -66,7 +68,7 @@ defmodule ZupplerUsers.Auth.Supervisor do
   end
 
   @doc """
-  Verifies if the user has a given role. Roles can be either a single string "admin" or an a list of string ["restaurant", "channel"].
+  Verifies if the user has a given role. Roles can be either a single string *"admin"* or an a list of string *["restaurant", "channel"]*.
   It returns true if the user has any of the given roles
   """
   def has_role(user_info, roles) do

@@ -2,6 +2,10 @@ defmodule ZupplerUsers.Auth.Worker do
   use GenServer
   alias ZupplerUsers.Auth.User
 
+  @moduledoc """
+  Process worker that will proxy messages to module functions
+  """
+
   def start_link(state) do
     :gen_server.start_link(__MODULE__, state, [])
   end

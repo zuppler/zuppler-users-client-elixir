@@ -1,4 +1,20 @@
 defmodule ZupplerUsers.Auth.Oauth do
+
+  @moduledoc """
+  This module defines the `get_user_token` method and provides functionality
+  to get a valid token for accessing oauth protected endpoints.
+
+  ## Notes
+
+  * The user id is requred to generate token.
+
+  ## Example:
+
+  ```
+  {:ok, token} =  ZupplerUsers.Auth.Oauth.get_user_token("12345")
+  ```
+  """
+
   @doc """
     Loads user token from Users based on user id and client_id, client_secret for this app
   """

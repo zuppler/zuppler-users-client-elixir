@@ -7,12 +7,20 @@ defmodule ZupplerUsers.Auth.Plug do
 
   @moduledoc """
   Plug that protects routes from unauthenticated access.
-  If a header with name "authorization" and value "Bearer \#{token}"
-  is present, and "token" can be decoded with the applications token secret
-  or the auth_token param is in the body,
-  the user is authenticated and the decoded token is assigned to the connection
-  under the key "user_info".
+
+  ## Notes
+
+  This plug will be injected in phoenix pipeline to protect api endpoints.
+
+  Token is retrieved:
+
+    - either from header: *authorization* and value *"Bearer \#{token}"*
+    - either from body params: *auth_token*
+
+  After authorization the decoded user_info is assigned to the connection
+  under the key *user_info*.
   """
+
   def init(opts) do
     opts
   end

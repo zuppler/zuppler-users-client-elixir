@@ -1,5 +1,19 @@
 defmodule ZupplerUsers.Auth.User do
 
+  @moduledoc """
+  This module contains the functions to work with Zuppler User.
+
+  ## Notes
+
+  * The token is requred to load the user info
+
+  ## Example:
+
+  ```
+  {:ok, token} =  ZupplerUsers.Auth.Oauth.get_user_token("12345")
+  ```
+  """
+
   def has_any_role?(user_info, user_roles) when is_list(user_roles) do
     r1 = MapSet.new user_roles
     r2 = MapSet.new user_info.roles
@@ -15,14 +29,21 @@ defmodule ZupplerUsers.Auth.User do
   @doc """
     Loads user info from Zuppler Users based on user token.
     Response is in this format:
+
+    ```
     {:ok, %{info:
                 %{acls: %{}, email: "test@zuppler.com", id: 14802,
                   name: "Test Account", phone: "1234567890",
                   roles: ["restaurant"]
             }, provider: "zuppler", uid: "10768"}
     }
+    ```
+
     If token is not valid response will be
+
+    ```
     {:fail, "Not authorized"}
+    ```
   """
   def auth(token) do
     case HTTPotion.get user_url, query: [access_token: token] do

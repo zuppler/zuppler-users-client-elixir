@@ -1,19 +1,59 @@
 # Zuppler Users Client
 
-Zuppler Users Elixir client for autorizing zuppler API. It consists of a token generator and a plug to add to Phoenix
+> Elexir implementation of Zuppler Users Client for autorizing zuppler API. It consists of a token generator and a plug to add to Phoenix.
 
-## Installation
+## Install
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+```elixir
+# mix.exs
 
-  1. Add zuppler_users_client to your list of dependencies in `mix.exs`:
+def application do
+  [applications: [:logger, :zuppler_users_client]]
+end
 
-        def deps do
-          [{:zuppler_users_client, "~> 0.0.1"}]
-        end
+defp deps do
+  [{:zuppler_users_client, "~> 0.0.2"}]
+end
+```
 
-  2. Ensure zuppler_users_client is started before your application:
+## Usage
 
-        def application do
-          [applications: [:zuppler_users_client]]
-        end
+Add inside router.ex
+
+```elixir
+pipeline :authorization do
+  plug Authorization.Plug
+end
+
+...............
+
+scope "/api", Appname do
+  pipe_through :api
+  pipe_through :authorization
+
+end
+```
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2016 Zuppler
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

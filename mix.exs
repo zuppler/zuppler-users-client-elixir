@@ -1,33 +1,25 @@
 defmodule ZupplerUsers.Mixfile do
   use Mix.Project
 
+  @version "0.0.3"
+
   def project do
     [app: :zuppler_users_client,
-     version: "0.0.2",
+     name: "Zuppler Users Client",
+     version: @version,
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     description: "A module for authenticating Zuppler API using Zuppler Oauth",
+     description: description,
      package: package,
+     docs: docs,
      deps: deps]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
   def application do
     [applications: [:logger, :httpotion]]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
   defp deps do
     [
       {:phoenix, "~> 1.1.4"},
@@ -41,12 +33,21 @@ defmodule ZupplerUsers.Mixfile do
    ]
   end
 
+  defp description do
+    "An Elixir OAuth 2.0 Client Library to protect Zuppler API"
+  end
+
+  defp docs do
+    [extras: ["README.md"],
+     main: "readme",
+     source_ref: "v#{@version}",
+     source_url: "https://github.com/zuppler/zuppler-users-client-elixir"]
+  end
+
   defp package do
-    [# These are the default files included in the package
+    [files: ["lib", "priv", "mix.exs", "README.md", "LICENSE"],
      maintainers: ["Silviu Rosu", "Petrica Ghiurca"],
-     licenses: ["Apache 2.0"],
-     links: %{"GitHub" => "https://github.com/zuppler/zuppler-users-client-elixir.git",
-              "Docs" => "https://github.com/zuppler/zuppler-users-client-elixir.git"}]
+     licenses: ["MIT"],
+     links: %{github: "https://github.com/zuppler/zuppler-users-client-elixir.git"}]
   end
 end
-

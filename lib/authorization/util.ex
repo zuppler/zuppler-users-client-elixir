@@ -2,6 +2,11 @@ defmodule ZupplerUsers.Auth.Util do
   import Phoenix.Controller, only: [json: 2]
   import Plug.Conn
 
+  @moduledoc """
+  This module defines the utility functions to extract token from request
+  and to send unauthenticated error on response if token is not present
+  """
+
   def send_error(conn, error_msg, status \\ 422) do
     conn
     |> put_status(status)
