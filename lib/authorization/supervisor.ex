@@ -31,7 +31,7 @@ defmodule ZupplerUsers.Auth.Supervisor do
     # pool_config = []
     poolboy_config = [
       {:name, {:local, pool_name()}},
-      {:worker_module, Authorization.Worker},
+      {:worker_module, ZupplerUsers.Auth.Worker},
       {:size, 5},
       {:max_overflow, 10}
     ]

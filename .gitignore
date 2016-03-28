@@ -5,3 +5,4 @@ erl_crash.dump
 *.ez
 test/vcr_cassettes
 *.tar
+doc
