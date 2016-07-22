@@ -34,6 +34,14 @@ scope "/api", Appname do
 end
 ```
 
+## Dependecies
+
+Too see all project depenecy tree run:
+
+```shell
+mix deps.tree --exclude elixir
+```
+
 ## License
 
 The MIT License (MIT)
