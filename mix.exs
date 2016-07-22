@@ -22,14 +22,14 @@ defmodule ZupplerUsers.Mixfile do
 
   defp deps do
     [
-      {:phoenix, "~> 1.1.4"},
-      {:oauth2, "~> 0.5"},
-      {:httpotion, "~> 2.2.0"},
-      {:poolboy, "~> 1.5"},
+      {:phoenix, "~> 1.2.0"},
+      {:oauth2, "~> 0.6"},
+      {:httpotion, "~> 3.0.0"},
+      {:poolboy, "~> 1.5.1"},
       {:lru_cache, "~> 0.1.0"},
-      {:mix_test_watch, "~> 0.1.1", only: :dev},
-      {:exvcr, "~> 0.7", only: :test},
-      {:ex_doc, ">= 0.11.4", only: [:dev]}
+      {:mix_test_watch, "~> 0.2.6", only: :dev},
+      {:exvcr, "~> 0.8.1", only: :test},
+      {:ex_doc, ">= 0.13.0", only: [:dev]}
    ]
   end
 
